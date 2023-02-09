@@ -1,11 +1,13 @@
-.App {
-  text-align: center;
+body{
+  background-color: black;
+  margin: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App {
+  text-align: center;
+
 }
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -35,4 +37,42 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+/* My css */
+
+
+.main-label{
+  font-size: 1.5rem;
+  color: white;
+}
+
+button{
+  margin: 30px;
+  padding: 15px;
+  background-color: green;
+  color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+
+button:active{
+  background-color: red;
+}
+
+/* image */
+
+.dog-images{
+  border: 2px solid red;
+  border-radius: 10px;
+  margin: 30px;
+}
+
+select{
+  padding: .5rem;
+  background-color: green;
+  color: white;
+
 }
