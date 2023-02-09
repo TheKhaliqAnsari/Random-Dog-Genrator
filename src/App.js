@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 
 function App() {
   const [dog, setDog] = useState();
+  const [compare, setCompare] = useState("");
   const dataFetchedRef = useRef(false);
 
   useEffect(() => {
@@ -25,17 +26,31 @@ function App() {
 
   const fetchNextImage = async () => {
     // for random image
-    await fetch("https://dog.ceo/api/breeds/image/random")
+    
+    if(compare === 'random' || compare ===""){
+      console.log('from function')
+      await fetch("https://dog.ceo/api/breeds/image/random")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
         setDog(data.message);
       });
+    }else{
+      await fetch(`https://dog.ceo/api/breed/${compare}/images/random`)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setDog(data.message);
+      });
+    }
   };
 
   const getDogBreed = (e) => {
     console.log(e.target.value);
+    setCompare(e.target.value);
   };
+  
+  
 
   
   return (
@@ -53,7 +68,7 @@ function App() {
             <option value="beagle">beagle</option>
             <option value="boxer">boxer</option>
             <option value="dalmatian">dalmatian</option>
-            <option value="huskey">huskey</option>
+            <option value="husky">husky</option>
           </select>
         </div>
         {/* dog image */}
